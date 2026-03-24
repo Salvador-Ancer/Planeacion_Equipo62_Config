@@ -7,7 +7,7 @@
   "DEBUG": false,
   "FEATURE_FLAGS": {
     "nueva_ui": true,
-    "pagos_beta": true,
+    "pagos_beta": false,
     "notificaciones": true
   }
 }
