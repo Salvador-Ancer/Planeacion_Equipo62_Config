@@ -36,7 +36,7 @@ Existe un archivo por entorno:
 ## Ejemplo de uso
 ```json
 {
-  "APP_NAME": "mi-app",
+  "APP_NAME": "Equipo62",
   "PORT": 3000,
   "ENVIRONMENT": "development",
   "DB_HOST": "localhost",
