@@ -1,1 +1,13 @@
-
+{
+  "APP_NAME": "mi-app",
+  "PORT": 8080,
+  "ENVIRONMENT": "production",
+  "DB_HOST": "prod-db.internal",
+  "DB_PORT": 5432,
+  "DEBUG": false,
+  "FEATURE_FLAGS": {
+    "nueva_ui": false,
+    "pagos_beta": false,
+    "notificaciones": true
+  }
+}
