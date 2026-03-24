@@ -1,5 +1,5 @@
 {
-  "APP_NAME": "mi-app",
+  "APP_NAME": "Equipo62",
   "PORT": 3000,
   "ENVIRONMENT": "staging",
   "DB_HOST": "staging-db.internal",
