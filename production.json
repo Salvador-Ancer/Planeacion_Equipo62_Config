@@ -1,5 +1,5 @@
 {
-  "APP_NAME": "mi-app",
+  "APP_NAME": "Equipo62",
   "PORT": 8080,
   "ENVIRONMENT": "production",
   "DB_HOST": "prod-db.internal",
