@@ -1,1 +1,13 @@
-
+{
+  "APP_NAME": "mi-app",
+  "PORT": 3000,
+  "ENVIRONMENT": "staging",
+  "DB_HOST": "staging-db.internal",
+  "DB_PORT": 5432,
+  "DEBUG": false,
+  "FEATURE_FLAGS": {
+    "nueva_ui": true,
+    "pagos_beta": true,
+    "notificaciones": true
+  }
+}
