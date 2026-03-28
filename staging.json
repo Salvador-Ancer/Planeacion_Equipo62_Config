@@ -1,5 +1,5 @@
 {
-  "APP_NAME": "Equipo62",
+  "APP_NAME": "Equipo6_2",
   "PORT": 3000,
   "ENVIRONMENT": "staging",
   "DB_HOST": "staging-db.internal",
