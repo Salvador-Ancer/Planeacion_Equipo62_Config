@@ -1,0 +1,15 @@
+{
+  "name": "equipo62-api",
+  "version": "1.0.0",
+  "description": "API simple con gestión profesional de configuración y secretos",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "validate-config": "node src/config.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}

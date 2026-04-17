@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [main, maria]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Validar configuracion y sintaxis
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Verificar que .env NO esta en el repositorio
+        run: |
+          if [ -f .env ]; then
+            echo "ERROR: El archivo .env no debe estar en el repositorio"
+            exit 1
+          fi
+          echo ".env ausente del repositorio OK"
+
+      - name: Verificar que .env.example existe
+        run: |
+          if [ ! -f .env.example ]; then
+            echo "ERROR: Falta el archivo .env.example"
+            exit 1
+          fi
+          echo ".env.example presente OK"
+
+      - name: Verificar sintaxis JavaScript
+        run: node --check src/index.js && node --check src/config.js && node --check src/routes/health.js
+
+      - name: Validar configuracion con variables simuladas
+        env:
+          APP_NAME: Equipo62API-CI
+          PORT: "3000"
+          NODE_ENV: test
+          LOG_LEVEL: info
+          FEATURE_X_ENABLED: "false"
+          DB_PASSWORD: ci_password_seguro_simulado
+          API_KEY: ci_api_key_simulada_para_pruebas
+          JWT_SECRET: ci_jwt_secret_suficientemente_largo_para_validacion
+        run: node src/config.js
+
+      - name: Escaneo de secretos con gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
